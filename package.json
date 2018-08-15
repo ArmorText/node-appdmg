@@ -1,12 +1,13 @@
 {
   "name": "appdmg",
-  "version": "0.4.6",
+  "version": "0.5.2",
   "license": "MIT",
   "author": "Linus Unnebäck <linus@folkdatorn.se>",
   "bin": "bin/appdmg.js",
-  "main": "index.js",
+  "repository": "LinusU/node-appdmg",
   "dependencies": {
     "async": "^1.4.2",
+    "buffer-alloc": "^1.1.0",
     "cp-file": "^3.1.0",
     "ds-store": "^0.1.5",
     "execa": "^0.4.0",
@@ -19,15 +20,11 @@
     "repeat-string": "^1.5.4"
   },
   "engines": {
-    "node": ">=0.12"
+    "node": ">=4"
   },
   "os": [
     "darwin"
   ],
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/LinusU/node-appdmg.git"
-  },
   "scripts": {
     "test": "standard && mocha -b"
   },

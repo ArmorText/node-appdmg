@@ -48,34 +48,37 @@ the JSON file's path.
 
 ### Specification
 
-+ `title` (string, required) - The title of the produced DMG, which will be shown when mounted
-+ `icon` (string, optional) - Path to your icon, which will be shown when mounted
-+ `background` (string, optional) - Path to your background
-+ `background-color` (string, optional) - Background color (accepts css colors)
-+ `icon-size` (number, optional) - Size of all the icons inside the DMG
-+ `window` (object, optional) - Window options
-    + `position` (object, optional) - Position when opened
-        + `x` (number, required) - X position relative to left of the screen
-        + `y` (number, required) - Y position relative to bottom of the screen
-    + `size` (object, optional) - Window size
-        + `width` (number, required) - Window width
-        + `height` (number, required) - Window height
-+ `format` (enum[string], optional) - Disk image format
-    + `UDRW` - UDIF read/write image
-    + `UDRO` - UDIF read-only image
-    + `UDCO` - UDIF ADC-compressed image
-    + `UDZO` - UDIF zlib-compressed image
-    + `UDBZ` - UDIF bzip2-compressed image (OS X 10.4+ only)
-    + `ULFO` - UDIF lzfse-compressed image (OS X 10.11+ only)
-+ `contents` (array[object], required) - This is the contents of your DMG.
-      + `x` (number, required) - X position relative to icon center
-      + `y` (number, required) - Y position relative to icon center
-      + `type` (enum[string], required)
-          + `link` - Creates a link to the specified target
-          + `file` - Adds a file to the DMG
-          + `position` - Positions a present file
-      + `path` (string, required) - Path to the file
-      + `name` (string, optional) - Name of the file within the DMG
+- `title` (string, required) - The title of the produced DMG, which will be shown when mounted
+- `icon` (string, optional) - Path to your icon, which will be shown when mounted
+- `background` (string, optional) - Path to your background
+- `background-color` (string, optional) - Background color (accepts css colors)
+- `icon-size` (number, optional) - Size of all the icons inside the DMG
+- `window` (object, optional) - Window options
+  - `position` (object, optional) - Position when opened
+    - `x` (number, required) - X position relative to left of the screen
+    - `y` (number, required) - Y position relative to bottom of the screen
+  - `size` (object, optional) - Window size
+    - `width` (number, required) - Window width
+    - `height` (number, required) - Window height
+- `format` (enum[string], optional) - Disk image format
+    - `UDRW` - UDIF read/write image
+    - `UDRO` - UDIF read-only image
+    - `UDCO` - UDIF ADC-compressed image
+    - `UDZO` - UDIF zlib-compressed image
+    - `UDBZ` - UDIF bzip2-compressed image (OS X 10.4+ only)
+    - `ULFO` - UDIF lzfse-compressed image (OS X 10.11+ only)
+- `contents` (array[object], required) - This is the contents of your DMG.
+    - `x` (number, required) - X position relative to icon center
+    - `y` (number, required) - Y position relative to icon center
+    - `type` (enum[string], required)
+      - `link` - Creates a link to the specified target
+      - `file` - Adds a file to the DMG
+      - `position` - Positions a present file
+    - `path` (string, required) - Path to the file
+    - `name` (string, optional) - Name of the file within the DMG
+- `code-sign` (object, optional) - Options for codesigning the DMG
+  - `signing-identity` (string, required) - The identity with which to sign the resulting DMG
+  - `identifier` (string, optional) - Explicitly set the unique identifier string that is embedded in code signatures
 
 `0.1.x` used a different JSON format. This format is still supported but
 deprecated, please update your json.
@@ -96,8 +99,8 @@ another javascript file, example:
 
 ```javascript
 
-var appdmg = require('appdmg');
-var ee = appdmg({ source: 'test/appdmg.json', target: 'test.dmg' });
+const appdmg = require('appdmg');
+const ee = appdmg({ source: 'test/appdmg.json', target: 'test.dmg' });
 
 ee.on('progress', function (info) {
 
@@ -126,7 +129,7 @@ ee.on('error', function (err) {
 You can also pass in the specification directly instead of reading it from a file. `basepath` should be a path which will be used to resolve other paths in the specification.
 
 ```javascript
-var ee = appdmg({
+const ee = appdmg({
   target: 'test.dmg',
   basepath: __dirname,
   specification: {
@@ -157,5 +160,5 @@ Files to usually move:
 
 ## Alternatives
 
-* [create-dmg](https://github.com/andreyvit/create-dmg/blob/master/README.md), a Bash script
-* [dmgbuild](https://pypi.python.org/pypi/dmgbuild), a Python version
+- [create-dmg](https://github.com/andreyvit/create-dmg/blob/master/README.md), a Bash script
+- [dmgbuild](https://pypi.python.org/pypi/dmgbuild), a Python version
