@@ -12,7 +12,7 @@
     "ds-store": "^0.1.6",
     "execa": "^0.10.0",
     "fs-temp": "^1.1.2",
-    "fs-xattr": "^0.2.1",
+    "fs-xattr": "github:LinusU/fs-xattr#node-12",
     "image-size": "^0.6.3",
     "is-my-json-valid": "^2.19.0",
     "minimist": "^1.2.0",
