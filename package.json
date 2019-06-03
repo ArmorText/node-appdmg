@@ -17,6 +17,7 @@
     "is-my-json-valid": "^2.19.0",
     "minimist": "^1.2.0",
     "parse-color": "^1.0.0",
+    "path-exists": "^4.0.0",
     "repeat-string": "^1.6.1"
   },
   "engines": {
