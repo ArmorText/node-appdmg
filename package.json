@@ -9,7 +9,7 @@
     "async": "^2.6.1",
     "buffer-alloc": "^1.2.0",
     "cp-file": "^6.0.0",
-    "ds-store": "^0.1.6",
+    "ds-store": "https://github.com/armortext/node-ds-store#node-23-patches",
     "execa": "^0.10.0",
     "fs-temp": "^1.1.2",
     "fs-xattr": "^0.3.0",
